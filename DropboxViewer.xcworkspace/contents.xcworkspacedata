@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:DropboxViewer.xcodeproj">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "Submodules">
+      <FileRef
+         location = "group:Submodules/Alamofire/Alamofire.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Submodules/ObjectMapper/ObjectMapper.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Submodules/SwiftyDropbox/Source/SwiftyDropbox/SwiftyDropbox.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

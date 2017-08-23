@@ -12,7 +12,25 @@
 		956C4BC21F4D7703002E11FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC01F4D7703002E11FD /* Main.storyboard */; };
 		956C4BC41F4D7703002E11FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC31F4D7703002E11FD /* Assets.xcassets */; };
 		956C4BC71F4D7703002E11FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC51F4D7703002E11FD /* LaunchScreen.storyboard */; };
+		956C4BD31F4D8131002E11FD /* SwiftyDropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */; };
+		956C4BD41F4D8131002E11FD /* SwiftyDropbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		956C4BD81F4D8159002E11FD /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD71F4D8159002E11FD /* ObjectMapper.framework */; };
+		956C4BDA1F4D84C2002E11FD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD91F4D84C2002E11FD /* Alamofire.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		956C4BD51F4D8131002E11FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				956C4BD41F4D8131002E11FD /* SwiftyDropbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		956C4BB91F4D7703002E11FD /* DropboxViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +40,9 @@
 		956C4BC31F4D7703002E11FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956C4BC61F4D7703002E11FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956C4BC81F4D7703002E11FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		956C4BD71F4D8159002E11FD /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Submodules/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
+		956C4BD91F4D84C2002E11FD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Submodules/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956C4BDA1F4D84C2002E11FD /* Alamofire.framework in Frameworks */,
+				956C4BD81F4D8159002E11FD /* ObjectMapper.framework in Frameworks */,
+				956C4BD31F4D8131002E11FD /* SwiftyDropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +64,7 @@
 			children = (
 				956C4BBB1F4D7703002E11FD /* DropboxViewer */,
 				956C4BBA1F4D7703002E11FD /* Products */,
+				956C4BD61F4D813A002E11FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +89,16 @@
 			path = DropboxViewer;
 			sourceTree = "<group>";
 		};
+		956C4BD61F4D813A002E11FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BD91F4D84C2002E11FD /* Alamofire.framework */,
+				956C4BD71F4D8159002E11FD /* ObjectMapper.framework */,
+				956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,6 +110,7 @@
 				956C4BB61F4D7703002E11FD /* Frameworks */,
 				956C4BB71F4D7703002E11FD /* Resources */,
 				956C4BD11F4D7F6B002E11FD /* Run Script for adding warnings and errors */,
+				956C4BD51F4D8131002E11FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,6 +318,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WK6DF5KMEZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Submodules/ObjectMapper/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Submodules/Alamofire/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DropboxViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AndriyHerasymyuk.DropboxViewer;
@@ -295,6 +336,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WK6DF5KMEZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Submodules/ObjectMapper/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Submodules/Alamofire/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DropboxViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AndriyHerasymyuk.DropboxViewer;
