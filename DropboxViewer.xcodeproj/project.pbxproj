@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		956C4BBD1F4D7703002E11FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BBC1F4D7703002E11FD /* AppDelegate.swift */; };
-		956C4BBF1F4D7703002E11FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BBE1F4D7703002E11FD /* ViewController.swift */; };
 		956C4BC21F4D7703002E11FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC01F4D7703002E11FD /* Main.storyboard */; };
 		956C4BC41F4D7703002E11FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC31F4D7703002E11FD /* Assets.xcassets */; };
 		956C4BC71F4D7703002E11FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC51F4D7703002E11FD /* LaunchScreen.storyboard */; };
@@ -16,6 +15,10 @@
 		956C4BD41F4D8131002E11FD /* SwiftyDropbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		956C4BD81F4D8159002E11FD /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD71F4D8159002E11FD /* ObjectMapper.framework */; };
 		956C4BDA1F4D84C2002E11FD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD91F4D84C2002E11FD /* Alamofire.framework */; };
+		956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */; };
+		956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BDF1F4DAE60002E11FD /* StartViewController.swift */; };
+		956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BE61F4DAEFD002E11FD /* MainViewController.swift */; };
+		956C4BEB1F4DAF31002E11FD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BEA1F4DAF31002E11FD /* Auth.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +38,6 @@
 /* Begin PBXFileReference section */
 		956C4BB91F4D7703002E11FD /* DropboxViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropboxViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		956C4BBC1F4D7703002E11FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		956C4BBE1F4D7703002E11FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		956C4BC11F4D7703002E11FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		956C4BC31F4D7703002E11FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956C4BC61F4D7703002E11FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,10 @@
 		956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		956C4BD71F4D8159002E11FD /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Submodules/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		956C4BD91F4D84C2002E11FD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Submodules/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		956C4BDF1F4DAE60002E11FD /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		956C4BE61F4DAEFD002E11FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		956C4BEA1F4DAF31002E11FD /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				956C4BBC1F4D7703002E11FD /* AppDelegate.swift */,
-				956C4BBE1F4D7703002E11FD /* ViewController.swift */,
-				956C4BC01F4D7703002E11FD /* Main.storyboard */,
-				956C4BC31F4D7703002E11FD /* Assets.xcassets */,
-				956C4BC51F4D7703002E11FD /* LaunchScreen.storyboard */,
-				956C4BC81F4D7703002E11FD /* Info.plist */,
+				956C4BE51F4DAEE9002E11FD /* Extensions */,
+				956C4BE41F4DAED4002E11FD /* ViewControllers */,
+				956C4BE31F4DAEBF002E11FD /* Storyboards */,
+				956C4BE21F4DAEA5002E11FD /* Resources */,
+				956C4BE11F4DAE9A002E11FD /* Supporting Files */,
 			);
 			path = DropboxViewer;
 			sourceTree = "<group>";
@@ -97,6 +103,65 @@
 				956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		956C4BE11F4DAE9A002E11FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BC81F4D7703002E11FD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		956C4BE21F4DAEA5002E11FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BC31F4D7703002E11FD /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		956C4BE31F4DAEBF002E11FD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BEA1F4DAF31002E11FD /* Auth.storyboard */,
+				956C4BC01F4D7703002E11FD /* Main.storyboard */,
+				956C4BC51F4D7703002E11FD /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		956C4BE41F4DAED4002E11FD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BE81F4DAF03002E11FD /* Auth Flow */,
+				956C4BE91F4DAF0A002E11FD /* Main Flow */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		956C4BE51F4DAEE9002E11FD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		956C4BE81F4DAF03002E11FD /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BDF1F4DAE60002E11FD /* StartViewController.swift */,
+			);
+			name = "Auth Flow";
+			sourceTree = "<group>";
+		};
+		956C4BE91F4DAF0A002E11FD /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BE61F4DAEFD002E11FD /* MainViewController.swift */,
+			);
+			name = "Main Flow";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956C4BEB1F4DAF31002E11FD /* Auth.storyboard in Resources */,
 				956C4BC71F4D7703002E11FD /* LaunchScreen.storyboard in Resources */,
 				956C4BC41F4D7703002E11FD /* Assets.xcassets in Resources */,
 				956C4BC21F4D7703002E11FD /* Main.storyboard in Resources */,
@@ -191,8 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956C4BBF1F4D7703002E11FD /* ViewController.swift in Sources */,
+				956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */,
+				956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */,
 				956C4BBD1F4D7703002E11FD /* AppDelegate.swift in Sources */,
+				956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GfH-DT-i8g">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="j7S-sQ-hUO">
+            <objects>
+                <viewController id="GfH-DT-i8g" customClass="StartViewController" customModule="DropboxViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h0a-aa-IxE"/>
+                        <viewControllerLayoutGuide type="bottom" id="S8Y-WN-Zl0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="86G-9z-9Va">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDH-hA-jGt">
+                                <rect key="frame" x="97" y="321" width="180" height="24"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Sign in to Dropbox" image="ic_dropbox_logo">
+                                    <color key="titleColor" red="0.0" green="0.43921568630000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInAction:" destination="GfH-DT-i8g" eventType="touchUpInside" id="WZT-lB-3ha"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MDH-hA-jGt" firstAttribute="centerY" secondItem="86G-9z-9Va" secondAttribute="centerY" id="93n-sO-W7P"/>
+                            <constraint firstItem="MDH-hA-jGt" firstAttribute="centerX" secondItem="86G-9z-9Va" secondAttribute="centerX" id="nMG-wb-Wys"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEk-OV-Svq" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_dropbox_logo" width="26" height="24"/>
+    </resources>
+</document>
