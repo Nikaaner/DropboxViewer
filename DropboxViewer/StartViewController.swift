@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyDropbox
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     
     // MARK: - Actions
     
