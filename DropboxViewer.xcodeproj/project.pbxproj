@@ -19,6 +19,8 @@
 		956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BDF1F4DAE60002E11FD /* StartViewController.swift */; };
 		956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BE61F4DAEFD002E11FD /* MainViewController.swift */; };
 		956C4BEB1F4DAF31002E11FD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BEA1F4DAF31002E11FD /* Auth.storyboard */; };
+		956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BEC1F4DB4E2002E11FD /* FolderItem.swift */; };
+		956C4BF51F4DF63A002E11FD /* FolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BF41F4DF63A002E11FD /* FolderList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +51,8 @@
 		956C4BDF1F4DAE60002E11FD /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		956C4BE61F4DAEFD002E11FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		956C4BEA1F4DAF31002E11FD /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		956C4BEC1F4DB4E2002E11FD /* FolderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderItem.swift; sourceTree = "<group>"; };
+		956C4BF41F4DF63A002E11FD /* FolderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				956C4BBC1F4D7703002E11FD /* AppDelegate.swift */,
+				956C4BEF1F4DBF08002E11FD /* Models */,
 				956C4BE51F4DAEE9002E11FD /* Extensions */,
 				956C4BE41F4DAED4002E11FD /* ViewControllers */,
 				956C4BE31F4DAEBF002E11FD /* Storyboards */,
@@ -162,6 +167,15 @@
 				956C4BE61F4DAEFD002E11FD /* MainViewController.swift */,
 			);
 			name = "Main Flow";
+			sourceTree = "<group>";
+		};
+		956C4BEF1F4DBF08002E11FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				956C4BEC1F4DB4E2002E11FD /* FolderItem.swift */,
+				956C4BF41F4DF63A002E11FD /* FolderList.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +274,8 @@
 				956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */,
 				956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */,
 				956C4BBD1F4D7703002E11FD /* AppDelegate.swift in Sources */,
+				956C4BF51F4DF63A002E11FD /* FolderList.swift in Sources */,
+				956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */,
 				956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

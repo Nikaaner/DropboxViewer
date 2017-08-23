@@ -10,7 +10,7 @@ import UIKit
 import SwiftyDropbox
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private enum Defaults {
         static let dropboxAppKey = "v0p5dzdk0t8nkfc"
