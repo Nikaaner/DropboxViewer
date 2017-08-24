@@ -23,6 +23,16 @@ final class FolderItem: Mappable {
     var modificationDate: Date?
     var fullPath: String?
     
+    var mimeType: String {
+        let defaultMimeType = "application/octet-stream"
+        
+        guard let fullPath = fullPath else { return defaultMimeType }
+        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, NSString(string: fullPath).pathExtension as CFString, nil)?.takeRetainedValue() else { return defaultMimeType }
+        guard let mimeType = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() as String? else { return defaultMimeType }
+        
+        return mimeType
+    }
+    
     fileprivate lazy var fileDirectory: URL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     
     fileprivate var filePathComponent: String? {

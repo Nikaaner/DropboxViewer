@@ -52,11 +52,8 @@ extension WebViewController: UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print(error)
-        let title = NSLocalizedString("Sorry", comment: "")
         let message = NSLocalizedString("File format is not supported", comment: "")
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
-        show(alert, sender: self)
+        showAlert(with: message)
     }
     
 }

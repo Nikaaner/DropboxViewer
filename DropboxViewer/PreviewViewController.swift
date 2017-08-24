@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol PreviewContentController: class {
 
@@ -25,7 +26,6 @@ final class PreviewViewController: UIViewController {
     
     var item: FolderItem?
     
-    fileprivate let baseURL = Bundle.main.bundleURL
     fileprivate var previewContentController: PreviewContentController?
     
     // MARK: - Lifecycle
@@ -49,6 +49,8 @@ final class PreviewViewController: UIViewController {
     }
     
     @IBAction func sendAction(_ sender: Any) {
+        guard let item = item else { return }
+        sendByEmail(item)
     }
     
 }
@@ -77,6 +79,37 @@ private extension PreviewViewController {
         containerView.addSubview(viewController.view)
         addChildViewController(viewController)
         viewController.didMove(toParentViewController: self)
+    }
+    
+    func sendByEmail(_ item: FolderItem) {
+        guard MFMailComposeViewController.canSendMail() else {
+            let message = NSLocalizedString("Mail services are not available", comment: "")
+            showAlert(with: message)
+            return
+        }
+        
+        guard let fileURL = previewContentController?.fileURL, let data = try? Data(contentsOf: fileURL) else { return }
+        
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        var fileName = NSLocalizedString("File", comment: "")
+        
+        if let fullPath = item.fullPath {
+            fileName = NSString(string: fullPath).lastPathComponent
+        }
+        
+        mailComposer.addAttachmentData(data, mimeType: item.mimeType, fileName: fileName )
+        present(mailComposer, animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension PreviewViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }
