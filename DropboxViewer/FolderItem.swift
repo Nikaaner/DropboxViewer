@@ -26,12 +26,12 @@ final class FolderItem: Mappable {
     func mapping(map: Map) {
         identifier <- map["id"]
         name <- map["name"]
-        modificationDate <- (map["server_modified"], ISO8601DateTransform())
+        modificationDate <- (map["client_modified"], ISO8601DateTransform())
         fullPath <- map["path_display"]
         type <- (map[".tag", nested: false], EnumTransform<Type>())
         
         if type == nil, let name = name {
-            type = Type.by(name)
+            type = Type(name)
         }
     }
     
@@ -45,12 +45,12 @@ extension FolderItem {
         case folder = "folder"
         case image, text, audio
         
-        static func by(_ name: String) -> Type? {
+        init?(_ name: String) {
             let fileExtension = NSString(string: name).pathExtension
             
             switch fileExtension {
             case _ where ImageType(rawValue: fileExtension) != nil:
-                return .image
+                self = .image
                 
             default: return nil
             }

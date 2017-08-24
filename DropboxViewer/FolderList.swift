@@ -44,7 +44,6 @@ extension FolderList {
                 let json = Files.ListFolderResultSerializer().serialize(result)
                 let object = SerializeUtil.prepareJSONForSerialization(json)
                 folderList = Mapper<FolderList>().map(JSONObject: object)
-                print(result) // FIXME: Remove
             }
             completion?(folderList, error)
         })
