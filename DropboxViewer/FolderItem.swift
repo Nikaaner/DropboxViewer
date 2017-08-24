@@ -13,7 +13,7 @@ import MobileCoreServices
 
 final class FolderItem: Mappable {
     
-    typealias DownloadCompletion = (_ data: Data?, _ error: CallError<(Files.DownloadError)>?) -> Void
+    typealias DownloadCompletion = (_ fileURL: URL?, _ error: CallError<(Files.DownloadError)>?) -> Void
     
     // MARK: - Properties
     
@@ -23,16 +23,14 @@ final class FolderItem: Mappable {
     var modificationDate: Date?
     var fullPath: String?
     
-    var mimeType: String {
-        let defaultMimeType = "application/octet-stream"
-        
-        guard let fullPath = fullPath else { return defaultMimeType }
-        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, NSString(string: fullPath).pathExtension as CFString, nil)?.takeRetainedValue() else { return defaultMimeType }
-        guard let mimeType = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() as String? else { return defaultMimeType }
-        
-        return mimeType
+    fileprivate lazy var fileDirectory: URL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    
+    fileprivate var filePathComponent: String? {
+        guard let fullPath = fullPath else { return nil }
+        let fileName = NSString(string: fullPath).lastPathComponent
+        return "\(fullPath.hashValue)-\(fileName)"
     }
-
+    
     // MARK: - Mappable
     
     init?(map: Map) {}
@@ -55,9 +53,34 @@ final class FolderItem: Mappable {
 
 extension FolderItem {
     
+    func getFile(completion: DownloadCompletion?) {
+        guard let pathComponent = filePathComponent else {
+            completion?(nil, nil)
+            return
+        }
+
+        let destinationURL = fileDirectory.appendingPathComponent(pathComponent)
+        let searchPath = "\(NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!)/\(pathComponent)"
+        if FileManager.default.fileExists(atPath: searchPath) {
+            completion?(destinationURL, nil)
+            return
+        }
+        
+        download(completion: completion)
+    }
+    
     func download(completion: DownloadCompletion?) {
+        guard let pathComponent = filePathComponent else {
+            completion?(nil, nil)
+            return
+        }
+
+        let destination: (URL, HTTPURLResponse) -> URL = { temporaryURL, response in
+            return self.fileDirectory.appendingPathComponent(pathComponent)
+        }
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        DropboxClientsManager.authorizedClient?.files.download(path: fullPath ?? "").response(completionHandler: { (result, error) in
+        DropboxClientsManager.authorizedClient?.files.download(path: fullPath ?? "", overwrite: true, destination: destination).response(completionHandler: { (result, error) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             completion?(result?.1, error)
         })
@@ -71,7 +94,7 @@ extension FolderItem {
     
     enum `Type`: String {
         case folder = "folder"
-        case image, text, audio
+        case image, audio, document
         
         init?(_ name: String) {
             let fileExtension = NSString(string: name).pathExtension
@@ -85,7 +108,7 @@ extension FolderItem {
         }
         
         private enum ImageType: String {
-            case jpg, jpeg, png, tiff, tif, gif, bmp
+            case jpg, jpeg, png, tiff, tif, gif, bmp // TODO: Review supported types
         }
         
     }

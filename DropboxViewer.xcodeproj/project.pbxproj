@@ -21,6 +21,8 @@
 		956C4BEB1F4DAF31002E11FD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BEA1F4DAF31002E11FD /* Auth.storyboard */; };
 		956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BEC1F4DB4E2002E11FD /* FolderItem.swift */; };
 		956C4BF51F4DF63A002E11FD /* FolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BF41F4DF63A002E11FD /* FolderList.swift */; };
+		956C4BFB1F4F1749002E11FD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BFA1F4F1749002E11FD /* PreviewViewController.swift */; };
+		95DA60531F4F5BE600BD3B87 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA60521F4F5BE600BD3B87 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +55,8 @@
 		956C4BEA1F4DAF31002E11FD /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		956C4BEC1F4DB4E2002E11FD /* FolderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderItem.swift; sourceTree = "<group>"; };
 		956C4BF41F4DF63A002E11FD /* FolderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderList.swift; sourceTree = "<group>"; };
+		956C4BFA1F4F1749002E11FD /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		95DA60521F4F5BE600BD3B87 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				956C4BE61F4DAEFD002E11FD /* MainViewController.swift */,
+				956C4BFA1F4F1749002E11FD /* PreviewViewController.swift */,
+				95DA60521F4F5BE600BD3B87 /* WebViewController.swift */,
 			);
 			name = "Main Flow";
 			sourceTree = "<group>";
@@ -273,10 +279,12 @@
 			files = (
 				956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */,
 				956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */,
+				956C4BFB1F4F1749002E11FD /* PreviewViewController.swift in Sources */,
 				956C4BBD1F4D7703002E11FD /* AppDelegate.swift in Sources */,
 				956C4BF51F4DF63A002E11FD /* FolderList.swift in Sources */,
 				956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */,
 				956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */,
+				95DA60531F4F5BE600BD3B87 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

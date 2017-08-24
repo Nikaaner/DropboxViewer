@@ -12,11 +12,12 @@ import SwiftyDropbox
 class MainViewController: UITableViewController {
     
     // MARK: - Properties
-    
-    var list: FolderList?
+
     var path = ""
+
+    fileprivate var list: FolderList?
     
-    lazy var dateFormatter: DateFormatter = {
+    fileprivate lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
@@ -43,8 +44,13 @@ class MainViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let mainViewController = segue.destination as? MainViewController, let selectedRow = tableView.indexPathForSelectedRow?.row, let selectedItem = list?.items?[selectedRow], let path = selectedItem.fullPath {
+        guard let selectedRow = tableView.indexPathForSelectedRow?.row, let selectedItem = list?.items?[selectedRow] else { return }
+        
+        if let mainViewController = segue.destination as? MainViewController, let path = selectedItem.fullPath {
             mainViewController.path = path
+            
+        } else if let previewViewController = segue.destination as? PreviewViewController {
+            previewViewController.item = selectedItem
         }
     }
     
