@@ -26,7 +26,7 @@ final class PreviewViewController: UIViewController {
     
     var item: FolderItem?
     
-    fileprivate var previewContentController: PreviewContentController?
+    fileprivate weak var previewContentController: PreviewContentController?
     
     // MARK: - Lifecycle
     
@@ -64,21 +64,16 @@ private extension PreviewViewController {
             if let url = url, let strongSelf = self {
                 var contentController: UIViewController?
                 switch strongSelf.item?.type {
+                case .audio?, .video?:
+                    contentController = PlayerViewController()
                 default:
                     contentController = UIStoryboard(.Main).instantiateViewController() as WebViewController
                 }
                 strongSelf.previewContentController = (contentController as! PreviewContentController)
                 strongSelf.previewContentController?.fileURL = url
-                strongSelf.setEmbed(viewController: contentController!)
+                strongSelf.setEmbed(viewController: contentController!, in: strongSelf.containerView)
             }
         })
-    }
-    
-    func setEmbed(viewController: UIViewController) {
-        viewController.willMove(toParentViewController: self)
-        containerView.addSubview(viewController.view)
-        addChildViewController(viewController)
-        viewController.didMove(toParentViewController: self)
     }
     
     func sendByEmail(_ item: FolderItem) {

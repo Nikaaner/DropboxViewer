@@ -23,15 +23,15 @@ final class FolderItem: Mappable {
     var modificationDate: Date?
     var fullPath: String?
     
-    var mimeType: String {
+    lazy var mimeType: String = {
         let defaultMimeType = "application/octet-stream"
         
-        guard let fullPath = fullPath else { return defaultMimeType }
+        guard let fullPath = self.fullPath else { return defaultMimeType }
         guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, NSString(string: fullPath).pathExtension as CFString, nil)?.takeRetainedValue() else { return defaultMimeType }
         guard let mimeType = UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType)?.takeRetainedValue() as String? else { return defaultMimeType }
         
         return mimeType
-    }
+    }()
     
     fileprivate lazy var fileDirectory: URL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     
@@ -52,8 +52,8 @@ final class FolderItem: Mappable {
         fullPath <- map["path_display"]
         type <- (map[".tag", nested: false], EnumTransform<Type>())
         
-        if type == nil, let name = name {
-            type = Type(name)
+        if type == nil {
+            type = Type(mimeType)
         }
     }
     
@@ -103,22 +103,15 @@ extension FolderItem {
 extension FolderItem {
     
     enum `Type`: String {
-        case folder = "folder"
-        case image, audio, document
+        case folder, image, audio, video
         
-        init?(_ name: String) {
-            let fileExtension = NSString(string: name).pathExtension
-            
-            switch fileExtension {
-            case _ where ImageType(rawValue: fileExtension) != nil:
-                self = .image
-                
-            default: return nil
+        init?(_ mimeType: String) {
+            let typeString = mimeType.components(separatedBy: "/").first!
+            if let type = Type(rawValue: typeString) {
+                self = type
+            } else {
+                return nil
             }
-        }
-        
-        private enum ImageType: String {
-            case jpg, jpeg, png, tiff, tif, gif, bmp // TODO: Review supported types
         }
         
     }

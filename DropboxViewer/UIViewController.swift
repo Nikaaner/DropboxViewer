@@ -17,4 +17,11 @@ extension UIViewController {
         show(alert, sender: self)
     }
     
+    func setEmbed(viewController: UIViewController, in containerView: UIView) {
+        viewController.view.frame = containerView.bounds
+        containerView.addSubview(viewController.view)
+        addChildViewController(viewController)
+        viewController.didMove(toParentViewController: self)
+    }
+    
 }
