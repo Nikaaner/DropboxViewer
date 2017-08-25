@@ -24,4 +24,15 @@ extension UIViewController {
         viewController.didMove(toParentViewController: self)
     }
     
+    func transitionTo(viewController: UIViewController?, options: UIViewAnimationOptions = [], completion: ((Bool) -> Swift.Void)? = nil) {
+        guard let viewController = viewController else { return }
+        let areAnimationsEnabled = UIView.areAnimationsEnabled
+        let view = presentedViewController?.view ?? self.view
+        UIView.setAnimationsEnabled(false)
+        UIView.transition(from: view!, to: viewController.view, duration: 0.3, options: options) { (bool) in
+            UIView.setAnimationsEnabled(areAnimationsEnabled)
+            completion!(bool)
+        }
+    }
+    
 }

@@ -12,10 +12,11 @@ import SwiftyDropbox
 class MainViewController: UITableViewController {
     
     // MARK: - Properties
-
+    
     var path = ""
 
     fileprivate var list: FolderList?
+    fileprivate var logOutBarButtonItem: UIBarButtonItem?
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -28,8 +29,7 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let title = NSString(string: path).lastPathComponent
-        navigationItem.title = title.isEmpty ? NSLocalizedString("My Dropbox", comment: "Main screen title") : title
+        setUpNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +51,32 @@ class MainViewController: UITableViewController {
             
         } else if let previewViewController = segue.destination as? PreviewViewController {
             previewViewController.item = selectedItem
+        }
+    }
+    
+    // MARK: - Actions
+    
+    func logOutAction(_ sender: Any) {
+        DropboxClientsManager.unlinkClients()
+        AppDelegate.shared.showStartScreen()
+    }
+    
+}
+
+// MARK: - Private
+
+private extension MainViewController {
+    
+    func setUpNavigationItem() {
+        let title = NSString(string: path).lastPathComponent
+        if !title.isEmpty {
+            navigationItem.title = title
+        }
+        
+        if navigationController?.viewControllers.count == 1 {
+            let logOutTitle = NSLocalizedString("Log out", comment: "")
+            let logOutBarButtonItem = UIBarButtonItem(title: logOutTitle, style: .plain, target: self, action: #selector(logOutAction))
+            navigationItem.setLeftBarButton(logOutBarButtonItem, animated: false)
         }
     }
     

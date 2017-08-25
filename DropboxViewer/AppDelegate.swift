@@ -34,7 +34,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         handleAuthResult(url)
         return true
     }
+}
 
+// MARK: - Public
+
+extension AppDelegate {
+    
+    func showStartScreen(animated: Bool = true) {
+        let viewController = UIStoryboard(.Auth).instantiateInitialViewController()!
+        setRootViewController(viewController, animated: animated, options: .transitionFlipFromLeft)
+    }
+    
+    func showMainScreen(animated: Bool = true) {
+        let viewController = UIStoryboard(.Main).instantiateInitialViewController()!
+        setRootViewController(viewController, animated: animated, options: .transitionFlipFromRight)
+    }
+    
 }
 
 // MARK: - Private
@@ -43,17 +58,17 @@ private extension AppDelegate {
     
     func logInIfNeeded() {
         guard DropboxClientsManager.authorizedClient == nil else { return }
-        window?.makeKeyAndVisible()
-        showStartScreen(animated: false)
+        showStartScreen()
     }
     
-    func showStartScreen(animated: Bool = true) {
-        let viewController = UIStoryboard(.Auth).instantiateInitialViewController()!
-        window?.rootViewController?.present(viewController, animated: animated)
-    }
-    
-    func showMainScreen(animated: Bool = true) {
-        window?.rootViewController?.presentedViewController?.dismiss(animated: animated)
+    func setRootViewController(_ viewController: UIViewController, animated: Bool, options: UIViewAnimationOptions = []) {
+        if animated {
+            window?.rootViewController?.transitionTo(viewController: viewController, options: options, completion: { (bool) in
+                self.window?.rootViewController = viewController
+            })
+        } else {
+            window?.rootViewController = viewController
+        }
     }
     
     func handleAuthResult(_ url: URL) {
@@ -61,11 +76,8 @@ private extension AppDelegate {
             switch authResult {
             case .success:
                 print("Success! User is logged into Dropbox.")
-                showMainScreen()
-                
             case .cancel:
                 print("Authorization flow was manually canceled by user!")
-                
             case .error(_, let description):
                 print("Error: \(description)")
             }
