@@ -25,6 +25,7 @@
 		95DA60531F4F5BE600BD3B87 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA60521F4F5BE600BD3B87 /* WebViewController.swift */; };
 		95DA60591F4F705600BD3B87 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA60581F4F705600BD3B87 /* UIViewController.swift */; };
 		95DA605B1F501EEA00BD3B87 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA605A1F501EEA00BD3B87 /* PlayerViewController.swift */; };
+		95DA605E1F5048F000BD3B87 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA605D1F5048F000BD3B87 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,7 @@
 		95DA60521F4F5BE600BD3B87 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		95DA60581F4F705600BD3B87 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95DA605A1F501EEA00BD3B87 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		95DA605D1F5048F000BD3B87 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				956C4BE61F4DAEFD002E11FD /* MainViewController.swift */,
 				956C4BFA1F4F1749002E11FD /* PreviewViewController.swift */,
+				95DA605D1F5048F000BD3B87 /* ImageViewController.swift */,
 				95DA605A1F501EEA00BD3B87 /* PlayerViewController.swift */,
 				95DA60521F4F5BE600BD3B87 /* WebViewController.swift */,
 			);
@@ -292,6 +295,7 @@
 				956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */,
 				956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */,
 				95DA60531F4F5BE600BD3B87 /* WebViewController.swift in Sources */,
+				95DA605E1F5048F000BD3B87 /* ImageViewController.swift in Sources */,
 				95DA605B1F501EEA00BD3B87 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -64,11 +64,16 @@ private extension PreviewViewController {
             if let url = url, let strongSelf = self {
                 var contentController: UIViewController?
                 switch strongSelf.item?.type {
+                case .image?:
+                    contentController = UIStoryboard(.Main).instantiateViewController() as ImageViewController
+                
                 case .audio?, .video?:
                     contentController = PlayerViewController()
+                    
                 default:
                     contentController = UIStoryboard(.Main).instantiateViewController() as WebViewController
                 }
+                
                 strongSelf.previewContentController = (contentController as! PreviewContentController)
                 strongSelf.previewContentController?.fileURL = url
                 strongSelf.setEmbed(viewController: contentController!, in: strongSelf.containerView)
