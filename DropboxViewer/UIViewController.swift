@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Reachability
 
 extension UIViewController {
+    
+    var isVisible: Bool {
+        return isViewLoaded && view.window != nil
+    }
     
     func showAlert(with message: String) {
         let title = NSLocalizedString("Sorry", comment: "")
@@ -33,6 +38,23 @@ extension UIViewController {
             UIView.setAnimationsEnabled(areAnimationsEnabled)
             completion!(bool)
         }
+    }
+    
+}
+
+// MARK: - Swizzling
+
+extension UIViewController {
+    
+    @objc func swizzled_viewDidLoad() {
+        self.swizzled_viewDidLoad()
+        
+        if let autoRefreshable = self as? AutoRefreshable {
+            NotificationCenter.default.addObserver(forName: ReachabilityChangedNotification, object: autoRefreshable.reachability, queue: OperationQueue.main, using: { [weak autoRefreshable] (notification) in
+                autoRefreshable?.reachabilityChanged(notification)
+            })
+        }
+
     }
     
 }

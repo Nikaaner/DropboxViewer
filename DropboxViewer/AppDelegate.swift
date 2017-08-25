@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 import SwiftyDropbox
 
 @UIApplicationMain
@@ -22,9 +23,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    let reachability: Reachability? = {
+        let reachability = Reachability()
+        try? reachability?.startNotifier()
+        return reachability
+    }()
+    
     // MARK: - Lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        swizzling(forClass: UIViewController.self, originalSelector: #selector(UIViewController.viewDidLoad), swizzledSelector: #selector(UIViewController.swizzled_viewDidLoad))
         DropboxClientsManager.setupWithAppKey(Defaults.dropboxAppKey)
         logInIfNeeded()
         return true
@@ -57,8 +65,11 @@ extension AppDelegate {
 private extension AppDelegate {
     
     func logInIfNeeded() {
-        guard DropboxClientsManager.authorizedClient == nil else { return }
-        showStartScreen()
+        if DropboxClientsManager.authorizedClient == nil {
+            showStartScreen()
+        } else {
+            showMainScreen()
+        }
     }
     
     func setRootViewController(_ viewController: UIViewController, animated: Bool, options: UIViewAnimationOptions = []) {

@@ -7,3 +7,6 @@
 [submodule "Submodules/Alamofire"]
 	path = Submodules/Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Submodules/Reachability"]
+	path = Submodules/Reachability
+	url = https://github.com/ashleymills/Reachability.swift.git

@@ -34,11 +34,7 @@ class MainViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        FolderList.get(at: path) { [weak self] (folderList, error) in
-            self?.list = folderList
-            self?.tableView.reloadData()
-        }
+        refresh()
     }
     
     // MARK: - Navigation
@@ -59,6 +55,20 @@ class MainViewController: UITableViewController {
     func logOutAction(_ sender: Any) {
         DropboxClientsManager.unlinkClients()
         AppDelegate.shared.showStartScreen()
+    }
+    
+}
+
+// MARK: - AutoRefreshable
+
+extension MainViewController: AutoRefreshable {
+    
+    func refresh() {
+        guard reachability?.isReachable == true else { return }
+        FolderList.get(at: path) { [weak self] (folderList, error) in
+            self?.list = folderList
+            self?.tableView.reloadData()
+        }
     }
     
 }
