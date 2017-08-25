@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,6 +69,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DUk-ZJ-mkT" kind="presentation" id="vHW-mN-BSO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -80,6 +84,158 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMG-Bf-SO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="982" y="35"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="zzu-Ui-aQ0">
+            <objects>
+                <viewController id="DUk-ZJ-mkT" customClass="PreviewViewController" customModule="DropboxViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DxM-ko-Cb9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Awp-hd-jf1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cYb-sh-oIi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kG-JF-7sb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="hUo-rl-tlB"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="File" id="5At-qg-sBv">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="LG5-Fq-7x1">
+                                            <connections>
+                                                <action selector="closeAction:" destination="DUk-ZJ-mkT" id="Wu8-50-VQt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Send" id="d6U-XQ-XAs">
+                                                <connections>
+                                                    <action selector="sendAction:" destination="DUk-ZJ-mkT" id="4Gl-ut-qk0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="refresh" id="ke5-lr-QfW">
+                                                <connections>
+                                                    <action selector="refreshAction:" destination="DUk-ZJ-mkT" id="ci6-iy-Uin"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkJ-kq-z6M">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rkJ-kq-z6M" firstAttribute="leading" secondItem="cYb-sh-oIi" secondAttribute="leading" id="1HK-Bb-auP"/>
+                            <constraint firstItem="Awp-hd-jf1" firstAttribute="top" secondItem="rkJ-kq-z6M" secondAttribute="bottom" id="CkR-6S-azW"/>
+                            <constraint firstItem="rkJ-kq-z6M" firstAttribute="top" secondItem="2kG-JF-7sb" secondAttribute="bottom" id="EK1-na-cHW"/>
+                            <constraint firstItem="2kG-JF-7sb" firstAttribute="top" secondItem="cYb-sh-oIi" secondAttribute="top" id="P5e-kU-cfb"/>
+                            <constraint firstAttribute="trailing" secondItem="2kG-JF-7sb" secondAttribute="trailing" id="QXH-9N-aM3"/>
+                            <constraint firstAttribute="trailing" secondItem="rkJ-kq-z6M" secondAttribute="trailing" id="Xqt-Ts-ADE"/>
+                            <constraint firstItem="2kG-JF-7sb" firstAttribute="leading" secondItem="cYb-sh-oIi" secondAttribute="leading" id="lHJ-xz-i1m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="rkJ-kq-z6M" id="P6Q-wu-CU0"/>
+                        <outlet property="navItem" destination="5At-qg-sBv" id="w5Z-6N-VI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGF-Nj-HY7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="35"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="fTW-NH-Dlt">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="KFP-uZ-LaE" customClass="WebViewController" customModule="DropboxViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMV-cB-aE7"/>
+                        <viewControllerLayoutGuide type="bottom" id="VDV-ns-8Ya"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aDB-P9-4Vn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="elY-5e-sps">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KFP-uZ-LaE" id="hRc-om-dlw"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="elY-5e-sps" firstAttribute="top" secondItem="aDB-P9-4Vn" secondAttribute="top" id="GE9-V2-Xm6"/>
+                            <constraint firstAttribute="trailing" secondItem="elY-5e-sps" secondAttribute="trailing" id="MyV-Wn-0xT"/>
+                            <constraint firstItem="VDV-ns-8Ya" firstAttribute="top" secondItem="elY-5e-sps" secondAttribute="bottom" id="mZn-7C-DmW"/>
+                            <constraint firstItem="elY-5e-sps" firstAttribute="leading" secondItem="aDB-P9-4Vn" secondAttribute="leading" id="tOG-jF-kwr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="elY-5e-sps" id="F0r-QB-LtA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1VM-3r-5IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2992.8000000000002" y="34.632683658170919"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="Zk4-eM-8Om">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="spv-Ba-fWJ" customClass="ImageViewController" customModule="DropboxViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qsL-LK-OcI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nxv-h8-nUj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d2w-PJ-VT9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBZ-8U-K1s">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xyx-bB-5zL">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xyx-bB-5zL" firstAttribute="width" secondItem="tBZ-8U-K1s" secondAttribute="width" placeholder="YES" id="9AS-yC-3Te"/>
+                                    <constraint firstItem="Xyx-bB-5zL" firstAttribute="leading" secondItem="tBZ-8U-K1s" secondAttribute="leading" id="IsD-ff-0RZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xyx-bB-5zL" secondAttribute="trailing" id="dHf-BJ-uCg"/>
+                                    <constraint firstItem="Xyx-bB-5zL" firstAttribute="top" secondItem="tBZ-8U-K1s" secondAttribute="top" id="hyD-54-S8f"/>
+                                    <constraint firstItem="Xyx-bB-5zL" firstAttribute="height" secondItem="tBZ-8U-K1s" secondAttribute="height" placeholder="YES" id="tPB-gD-Xjp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xyx-bB-5zL" secondAttribute="bottom" id="yhY-4M-Bg2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="spv-Ba-fWJ" id="uWV-x5-vAu"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nxv-h8-nUj" firstAttribute="top" secondItem="tBZ-8U-K1s" secondAttribute="bottom" id="U7L-0b-XMQ"/>
+                            <constraint firstAttribute="trailing" secondItem="tBZ-8U-K1s" secondAttribute="trailing" id="a2i-BD-A2U"/>
+                            <constraint firstItem="tBZ-8U-K1s" firstAttribute="leading" secondItem="d2w-PJ-VT9" secondAttribute="leading" id="p5W-bu-d3i"/>
+                            <constraint firstItem="tBZ-8U-K1s" firstAttribute="top" secondItem="d2w-PJ-VT9" secondAttribute="top" id="tNM-3C-vGZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Xyx-bB-5zL" id="bAf-Yh-weZ"/>
+                        <outlet property="imageViewBottomConstraint" destination="yhY-4M-Bg2" id="WNM-8a-o0A"/>
+                        <outlet property="imageViewLeadingConstraint" destination="IsD-ff-0RZ" id="b7N-SA-Sry"/>
+                        <outlet property="imageViewTopConstraint" destination="hyD-54-S8f" id="oBl-AK-mJM"/>
+                        <outlet property="imageViewTrailingConstraint" destination="dHf-BJ-uCg" id="ZS5-mJ-mId"/>
+                        <outlet property="scrollView" destination="tBZ-8U-K1s" id="IAY-vL-MK8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DXA-qT-TOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3642.4000000000001" y="34.632683658170919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wjt-aB-CaN">
