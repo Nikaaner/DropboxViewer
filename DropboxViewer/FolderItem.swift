@@ -103,7 +103,7 @@ extension FolderItem {
 extension FolderItem {
     
     enum `Type`: String {
-        case folder, image, audio, video
+        case folder, image, text, audio, video
         
         init?(_ mimeType: String) {
             let typeString = mimeType.components(separatedBy: "/").first!

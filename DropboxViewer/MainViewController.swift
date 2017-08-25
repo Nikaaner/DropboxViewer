@@ -96,16 +96,33 @@ extension MainViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = list?.items?[indexPath.row]
-        let cellIdentifier = item?.type == .folder ? CellIdentifier.folderCell : CellIdentifier.fileCell
+        let item = list!.items![indexPath.row]
+        let cellIdentifier = item.type == .folder ? CellIdentifier.folderCell : CellIdentifier.fileCell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = item?.name
+        cell.imageView?.image = image(for: item)
+        cell.textLabel?.text = item.name
         
-        if let date = item?.modificationDate {
+        if let date = item.modificationDate {
             cell.detailTextLabel?.text = dateFormatter.string(from: date)
         }
         
         return cell
+    }
+    
+    private func image(for folderItem: FolderItem) -> UIImage {
+        guard let type = folderItem.type else { return #imageLiteral(resourceName: "ic_file") }
+        switch type {
+        case .folder:
+            return #imageLiteral(resourceName: "ic_folder")
+        case .image:
+            return #imageLiteral(resourceName: "ic_image")
+        case .text:
+            return #imageLiteral(resourceName: "ic_text")
+        case .audio:
+            return #imageLiteral(resourceName: "ic_audio")
+        case .video:
+            return #imageLiteral(resourceName: "ic_video")
+        }
     }
     
 }
