@@ -11,6 +11,13 @@ import SwiftyDropbox
 
 final class StartViewController: UIViewController {
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if DropboxClientsManager.authorizedClient != nil {
+            AppDelegate.shared.showMainScreen()
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func signInAction(_ sender: Any) {

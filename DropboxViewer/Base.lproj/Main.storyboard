@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--My Dropbox-->
         <scene sceneID="663-1V-1zF">
             <objects>
                 <tableViewController id="pKP-cq-nMX" customClass="MainViewController" customModule="DropboxViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="pKP-cq-nMX" id="bgR-e2-tFg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aqU-zK-Pxz"/>
+                    <navigationItem key="navigationItem" title="My Dropbox" id="aqU-zK-Pxz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMG-Bf-SO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

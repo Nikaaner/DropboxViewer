@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 import SwiftyDropbox
 
 @UIApplicationMain
@@ -22,9 +23,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    let reachability: Reachability? = {
+        let reachability = Reachability()
+        try? reachability?.startNotifier()
+        return reachability
+    }()
+    
     // MARK: - Lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        swizzling(forClass: UIViewController.self, originalSelector: #selector(UIViewController.viewDidLoad), swizzledSelector: #selector(UIViewController.swizzled_viewDidLoad))
         DropboxClientsManager.setupWithAppKey(Defaults.dropboxAppKey)
         logInIfNeeded()
         return true
@@ -34,7 +42,22 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         handleAuthResult(url)
         return true
     }
+}
 
+// MARK: - Public
+
+extension AppDelegate {
+    
+    func showStartScreen(animated: Bool = true) {
+        let viewController = UIStoryboard(.Auth).instantiateInitialViewController()!
+        setRootViewController(viewController, animated: animated, options: .transitionFlipFromLeft)
+    }
+    
+    func showMainScreen(animated: Bool = true) {
+        let viewController = UIStoryboard(.Main).instantiateInitialViewController()!
+        setRootViewController(viewController, animated: animated, options: .transitionFlipFromRight)
+    }
+    
 }
 
 // MARK: - Private
@@ -42,18 +65,21 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     
     func logInIfNeeded() {
-        guard DropboxClientsManager.authorizedClient == nil else { return }
-        window?.makeKeyAndVisible()
-        showStartScreen(animated: false)
+        if DropboxClientsManager.authorizedClient == nil {
+            showStartScreen()
+        } else {
+            showMainScreen()
+        }
     }
     
-    func showStartScreen(animated: Bool = true) {
-        let viewController = UIStoryboard(.Auth).instantiateInitialViewController()!
-        window?.rootViewController?.present(viewController, animated: animated)
-    }
-    
-    func showMainScreen(animated: Bool = true) {
-        window?.rootViewController?.presentedViewController?.dismiss(animated: animated)
+    func setRootViewController(_ viewController: UIViewController, animated: Bool, options: UIViewAnimationOptions = []) {
+        if animated {
+            window?.rootViewController?.transitionTo(viewController: viewController, options: options, completion: { (bool) in
+                self.window?.rootViewController = viewController
+            })
+        } else {
+            window?.rootViewController = viewController
+        }
     }
     
     func handleAuthResult(_ url: URL) {
@@ -61,11 +87,8 @@ private extension AppDelegate {
             switch authResult {
             case .success:
                 print("Success! User is logged into Dropbox.")
-                showMainScreen()
-                
             case .cancel:
                 print("Authorization flow was manually canceled by user!")
-                
             case .error(_, let description):
                 print("Error: \(description)")
             }

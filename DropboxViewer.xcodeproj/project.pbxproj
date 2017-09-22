@@ -13,8 +13,6 @@
 		956C4BC71F4D7703002E11FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956C4BC51F4D7703002E11FD /* LaunchScreen.storyboard */; };
 		956C4BD31F4D8131002E11FD /* SwiftyDropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */; };
 		956C4BD41F4D8131002E11FD /* SwiftyDropbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		956C4BD81F4D8159002E11FD /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD71F4D8159002E11FD /* ObjectMapper.framework */; };
-		956C4BDA1F4D84C2002E11FD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956C4BD91F4D84C2002E11FD /* Alamofire.framework */; };
 		956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */; };
 		956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BDF1F4DAE60002E11FD /* StartViewController.swift */; };
 		956C4BE71F4DAEFD002E11FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C4BE61F4DAEFD002E11FD /* MainViewController.swift */; };
@@ -26,6 +24,14 @@
 		95DA60591F4F705600BD3B87 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA60581F4F705600BD3B87 /* UIViewController.swift */; };
 		95DA605B1F501EEA00BD3B87 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA605A1F501EEA00BD3B87 /* PlayerViewController.swift */; };
 		95DA605E1F5048F000BD3B87 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA605D1F5048F000BD3B87 /* ImageViewController.swift */; };
+		95DA60621F5055AE00BD3B87 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA605F1F50558700BD3B87 /* Alamofire.framework */; };
+		95DA60631F5055AE00BD3B87 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA605F1F50558700BD3B87 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95DA60651F5055DE00BD3B87 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA60641F5055DE00BD3B87 /* ObjectMapper.framework */; };
+		95DA60661F5055DE00BD3B87 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA60641F5055DE00BD3B87 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95DA606A1F50786200BD3B87 /* UIAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA60691F50786200BD3B87 /* UIAppDelegate.swift */; };
+		95DA606C1F5078E300BD3B87 /* AutorefReshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA606B1F5078E300BD3B87 /* AutorefReshable.swift */; };
+		95DA606F1F5079ED00BD3B87 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA606E1F5079ED00BD3B87 /* Reachability.framework */; };
+		95DA60701F5079ED00BD3B87 /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 95DA606E1F5079ED00BD3B87 /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +41,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				95DA60661F5055DE00BD3B87 /* ObjectMapper.framework in Embed Frameworks */,
 				956C4BD41F4D8131002E11FD /* SwiftyDropbox.framework in Embed Frameworks */,
+				95DA60631F5055AE00BD3B87 /* Alamofire.framework in Embed Frameworks */,
+				95DA60701F5079ED00BD3B87 /* Reachability.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,8 +59,6 @@
 		956C4BC61F4D7703002E11FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956C4BC81F4D7703002E11FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		956C4BD71F4D8159002E11FD /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Submodules/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
-		956C4BD91F4D84C2002E11FD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Submodules/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		956C4BDF1F4DAE60002E11FD /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		956C4BE61F4DAEFD002E11FD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +70,11 @@
 		95DA60581F4F705600BD3B87 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95DA605A1F501EEA00BD3B87 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		95DA605D1F5048F000BD3B87 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		95DA605F1F50558700BD3B87 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DA60641F5055DE00BD3B87 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DA60691F50786200BD3B87 /* UIAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAppDelegate.swift; sourceTree = "<group>"; };
+		95DA606B1F5078E300BD3B87 /* AutorefReshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorefReshable.swift; sourceTree = "<group>"; };
+		95DA606E1F5079ED00BD3B87 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956C4BDA1F4D84C2002E11FD /* Alamofire.framework in Frameworks */,
-				956C4BD81F4D8159002E11FD /* ObjectMapper.framework in Frameworks */,
+				95DA60651F5055DE00BD3B87 /* ObjectMapper.framework in Frameworks */,
+				95DA60621F5055AE00BD3B87 /* Alamofire.framework in Frameworks */,
 				956C4BD31F4D8131002E11FD /* SwiftyDropbox.framework in Frameworks */,
+				95DA606F1F5079ED00BD3B87 /* Reachability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +114,7 @@
 			children = (
 				956C4BBC1F4D7703002E11FD /* AppDelegate.swift */,
 				956C4BEF1F4DBF08002E11FD /* Models */,
+				95DA606D1F5078EF00BD3B87 /* Protocols */,
 				956C4BE51F4DAEE9002E11FD /* Extensions */,
 				956C4BE41F4DAED4002E11FD /* ViewControllers */,
 				956C4BE31F4DAEBF002E11FD /* Storyboards */,
@@ -113,8 +127,9 @@
 		956C4BD61F4D813A002E11FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				956C4BD91F4D84C2002E11FD /* Alamofire.framework */,
-				956C4BD71F4D8159002E11FD /* ObjectMapper.framework */,
+				95DA605F1F50558700BD3B87 /* Alamofire.framework */,
+				95DA60641F5055DE00BD3B87 /* ObjectMapper.framework */,
+				95DA606E1F5079ED00BD3B87 /* Reachability.framework */,
 				956C4BD21F4D8131002E11FD /* SwiftyDropbox.framework */,
 			);
 			name = Frameworks;
@@ -158,6 +173,7 @@
 		956C4BE51F4DAEE9002E11FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				95DA60691F50786200BD3B87 /* UIAppDelegate.swift */,
 				956C4BDD1F4DAE35002E11FD /* UIStoryboard.swift */,
 				95DA60581F4F705600BD3B87 /* UIViewController.swift */,
 			);
@@ -193,6 +209,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		95DA606D1F5078EF00BD3B87 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				95DA606B1F5078E300BD3B87 /* AutorefReshable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,8 +227,8 @@
 				956C4BB51F4D7703002E11FD /* Sources */,
 				956C4BB61F4D7703002E11FD /* Frameworks */,
 				956C4BB71F4D7703002E11FD /* Resources */,
-				956C4BD11F4D7F6B002E11FD /* Run Script for adding warnings and errors */,
 				956C4BD51F4D8131002E11FD /* Embed Frameworks */,
+				956C4BD11F4D7F6B002E11FD /* Run Script for adding warnings and errors */,
 			);
 			buildRules = (
 			);
@@ -286,10 +310,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DA606A1F50786200BD3B87 /* UIAppDelegate.swift in Sources */,
 				956C4BDE1F4DAE35002E11FD /* UIStoryboard.swift in Sources */,
 				956C4BE01F4DAE60002E11FD /* StartViewController.swift in Sources */,
 				95DA60591F4F705600BD3B87 /* UIViewController.swift in Sources */,
 				956C4BFB1F4F1749002E11FD /* PreviewViewController.swift in Sources */,
+				95DA606C1F5078E300BD3B87 /* AutorefReshable.swift in Sources */,
 				956C4BBD1F4D7703002E11FD /* AppDelegate.swift in Sources */,
 				956C4BF51F4DF63A002E11FD /* FolderList.swift in Sources */,
 				956C4BED1F4DB4E2002E11FD /* FolderItem.swift in Sources */,
